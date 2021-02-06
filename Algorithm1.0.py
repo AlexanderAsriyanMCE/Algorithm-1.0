@@ -5,6 +5,7 @@ import math
 
 S=pd.read_csv(r"C:\Users\Alexander Asriyan\Desktop\MCE\MakeaFriend\balldata\ball_data.csv")
 
+#reads the csv file
 
 xyz=S.to_numpy()
 
