@@ -1,11 +1,11 @@
 import pandas as pd
 from scipy.interpolate import interp1d
 import math
-
 import numpy as np
 
 
 S=pd.read_csv(r"C:\Users\Alexander Asriyan\Desktop\MCE\MakeaFriend\balldata\ball_data1.csv")
+
 
 
 xyz=S.to_numpy()
@@ -53,7 +53,7 @@ F2ar=interp1d(x1, y1, kind='quadratic')
 #finds the trajectory function in the OXY(with wave) coordinate system
 
 def wave_to_XYZ(x):
-    return (k*x*math.sqrt(1+k**2)-b*(k**2+1))/(k*(1+k**2))
+    return ((x/(math.sqrt(1+k**2)))-(b/k))
 
 #conversion function for x from wave system to OXYZ
     
@@ -100,6 +100,8 @@ x0=wave_to_XYZ(x01)
 
 y0=-(k*x0+b)
 
+x0=(y0-b)/k
+
 z0=y01
 
 #converts the "n+1" coordinates to the OXYZ system
@@ -108,7 +110,10 @@ print("x = " , x0)
 print("y = " , y0)
 print("z = " , z0)
 
+print(x0, z0, y0)
+
 #prints the "n+1" point's coordinates in the OXYZ system
+
 
 
 
